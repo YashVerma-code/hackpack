@@ -6,6 +6,8 @@
   "bin": {
     "hackpack": "./bin/index.js",
     "hp": "./bin/index.js"
+    "hackpack": "./bin/index.js",
+    "hp": "./bin/index.js"
   },
   "type": "module",
   "scripts": {
