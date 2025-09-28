@@ -175,10 +175,12 @@
 //   }
 // });
 import chalk from 'chalk';
-import { loadState, clearState } from '../lib/state.js';
-import { handleSetupCommand, handleResumeCommand } from '../lib/commands/setup.js';
-import { handleSelectCommand, handleNameCommand } from '../lib/commands/select.js';
-import { handleAddCommand, handleUninstallCommand, handleMigrateCommand } from '../lib/commands/uiLibrary.js';
+import fs from 'fs';
+import path from 'path';
+import { loadState, clearState, listProjects } from '../lib/state.js';
+import { handleSetupCommand, handleResumeCommand, handleRunCommand } from '../lib/commands/setup.js';
+import { handleSelectCommand, handleNameCommand, handleProjectsCommand } from '../lib/commands/select.js';
+import { handleAddCommand, handleUninstallCommand } from '../lib/commands/uiLibrary.js';
 import { printHelp, parseArgs } from '../lib/commands/utils.js';
 import { runCli } from '../lib/interactive/wizard.js';
 
@@ -188,18 +190,83 @@ process.on('SIGINT', () => {
   process.exit(0);
 });
 
-// Handle other exit signals
 process.on('SIGTERM', () => {
   console.log(chalk.yellow('\n\n👋 Thanks for using hackpack! Goodbye!'));
   process.exit(0);
 });
 
+const VALID_COMMANDS = [
+  'help', '--help', '-h',
+  'reset',
+  'resume',
+  'state',
+  'select',
+  'projects',
+  'name',
+  'run',
+  'add',
+  'uninstall',
+  'migrate',
+  'deactivate',
+  'autocomplete'
+];
+
+// ---- Autocomplete script generator ----
+function printAutocomplete(shell) {
+  if (shell === 'powershell') {
+    console.log(`
+# Hackpack PowerShell Completion
+Register-ArgumentCompleter -Native -CommandName 'hp' -ScriptBlock {
+  param($wordToComplete, $commandAst, $cursorPosition)
+  $commands = @(
+    'help','reset','resume','select','projects','name','run',
+    'add','uninstall','migrate','state','deactivate'
+  )
+  $commands | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
+    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+  }
+}
+`);
+    return;
+  }
+
+  if (shell === 'bash' || shell === 'zsh') {
+    console.log(`
+# Hackpack Bash/Zsh Completion
+_hp_completions() {
+  COMPREPLY=()
+  local cur="\${COMP_WORDS[COMP_CWORD]}"
+  local opts="help reset resume select projects name run add uninstall migrate state deactivate"
+  COMPREPLY=( $(compgen -W "\${opts}" -- "$cur") )
+  return 0
+}
+complete -F _hp_completions hp
+`);
+    return;
+  }
+
+  console.log(chalk.red(`Unsupported shell '${shell}'. Use: powershell | bash | zsh`));
+  process.exit(1);
+}
+
+// ---- Command router ----
 async function handleSubcommands() {
   const args = parseArgs();
-  if (args.length === 0) return false; // no subcommand => fall back to interactive
+  if (args.length === 0) {
+    return false; // no subcommand, run interactive
+  }
+
+  const cmd = args[0];
+  if (!VALID_COMMANDS.includes(cmd)) {
+    console.log(chalk.red(`Error: Unknown command '${cmd}'`));
+    console.log(chalk.yellow('Available commands:'));
+    console.log(VALID_COMMANDS.filter(c => !c.startsWith('-')).map(c => `  ${c}`).join('\n'));
+    console.log(chalk.yellow('\nRun "hp" for interactive mode.'));
+    console.log(chalk.yellow('Run "hp -h" for detailed usage information.'));
+    process.exit(1);
+  }
 
   const state = loadState();
-  const cmd = args[0];
 
   switch (cmd) {
     case 'help':
@@ -207,54 +274,88 @@ async function handleSubcommands() {
     case '-h':
       printHelp();
       process.exit(0);
-      break;
-      
+
     case 'reset':
       clearState();
       console.log(chalk.green('State cleared.'));
       process.exit(0);
-      break;
-      
+
     case 'resume':
       await handleResumeCommand();
       break;
-      
+
     case 'state':
-      console.log(JSON.stringify(state, null, 2));
+      try {
+        const projects = listProjects();
+        if (!projects.length) {
+          console.log('No saved projects.');
+          process.exit(0);
+        }
+        const active = state && state.projectName;
+        console.log('Saved projects:');
+        projects.forEach(p => {
+          console.log(JSON.stringify(p, null, 2) + (p.projectName === active ? '  <-- active' : ''));
+        });
+      } catch (e) {
+        console.error('Failed to read saved projects:', e?.message || e);
+      }
       process.exit(0);
-      break;
-      
+
     case 'select':
       handleSelectCommand(args);
       break;
-      
+
+    case 'projects':
+      handleProjectsCommand(args);
+      break;
+
     case 'name':
       handleNameCommand(args);
       break;
-      
-    case 'setup':
-      await handleSetupCommand();
+
+    case 'run':
+      await handleRunCommand();
       break;
-      
+
     case 'add':
       await handleAddCommand(args);
       break;
-      
+
     case 'uninstall':
       await handleUninstallCommand(args);
       break;
-      
+
     case 'migrate':
-      await handleMigrateCommand(args);
-      break;
-      
-    default:
-      return false; // fall back to interactive
+      console.log(chalk.yellow('🚧 Migration Command Beta'));
+      console.log(chalk.cyan('The project migration feature is currently in development.'));
+      console.log(chalk.gray('\nFollow our releases for updates on this feature!'));
+      process.exit(0);
+
+    case 'deactivate':
+      const isWindows = process.platform === 'win32';
+      const deactivateFileName = isWindows ? 'deactivate-hackpack.bat' : 'deactivate-hackpack.sh';
+      const deactivateFile = path.join(process.cwd(), deactivateFileName);
+
+      if (!fs.existsSync(deactivateFile)) {
+        console.log(chalk.yellow('No active project environment found.'));
+        console.log(chalk.gray('Run "hp projects use <name>" to activate a project.'));
+        process.exit(1);
+      }
+      process.exit(0);
+
+    case 'autocomplete':
+      const shell = args[1];
+      if (!shell) {
+        console.log(chalk.red('Usage: hp autocomplete <powershell|bash|zsh>'));
+        process.exit(1);
+      }
+      printAutocomplete(shell);
+      process.exit(0);
   }
   return true;
 }
 
-// Entry point: try subcommands first, else fall back to interactive wizard
+// ---- Entry point ----
 (async () => {
   try {
     const handled = await handleSubcommands();

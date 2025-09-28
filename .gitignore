@@ -1,2 +1,6 @@
 node_modules
 delete
+.hackpack-state.json
+महत्वपूर्ण.md
+activate-hackpack.bat
+deactivate-hackpack.bat
