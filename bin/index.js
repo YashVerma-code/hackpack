@@ -7,6 +7,14 @@ import { handleSelectCommand, handleNameCommand, handleProjectsCommand } from '.
 import { handleAddCommand, handleUninstallCommand } from '../lib/commands/uiLibrary.js';
 import { printHelp, parseArgs } from '../lib/commands/utils.js';
 import { runCli } from '../lib/interactive/wizard.js';
+import { installAutocomplete, uninstallAutocomplete, handleCompletionRequest } from '../lib/autocomplete.js';
+
+const args = process.argv.slice(2);
+if (args[0] === '--get-completions') {
+  handleCompletionRequest(args.slice(1));
+  process.exit(0);
+}
+
 
 // Handle Ctrl+C gracefully
 process.on('SIGINT', () => {
@@ -31,7 +39,6 @@ const VALID_COMMANDS = [
   'add',
   'uninstall',
   'migrate',
-  'deactivate',
   'autocomplete'
 ];
 
@@ -130,12 +137,22 @@ async function handleSubcommands() {
       process.exit(0);
 
     case 'autocomplete':
-      const shell = args[1];
-      if (!shell) {
-        console.log(chalk.red('Usage: hp autocomplete <powershell|bash|zsh>'));
-        process.exit(1);
+       const subCmd = args[1];
+      if (!subCmd) {
+        console.log(chalk.yellow('Usage:'));
+        console.log(chalk.cyan('  hp autocomplete install   ') + chalk.gray('- Show autocomplete setup instructions'));
+        console.log(chalk.cyan('  hp autocomplete uninstall ') + chalk.gray('- Show autocomplete removal instructions'));
+        process.exit(0);
       }
-      printAutocomplete(shell);
+      
+      if (subCmd === 'install') {
+        await installAutocomplete();
+      } else if (subCmd === 'uninstall') {
+        await uninstallAutocomplete();
+      } else {
+        console.log(chalk.red(`Unknown autocomplete command: ${subCmd}`));
+        console.log(chalk.yellow('Use: hp autocomplete install or hp autocomplete uninstall'));
+      }
       process.exit(0);
   }
   return true;

@@ -33,15 +33,9 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@oclif/plugin-autocomplete": "^3.2.34",
     "chalk": "^5.6.2",
     "execa": "^9.5.2",
     "figlet": "^1.8.1",
     "inquirer": "^12.4.1"
-  },
-  "oclif": {
-    "plugins": [
-      "@oclif/plugin-autocomplete"
-    ]
   }
 }
