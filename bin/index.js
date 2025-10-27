@@ -1,197 +1,29 @@
-#!/usr/bin/env node
-// import inquirer from "inquirer";
-// import chalk from "chalk";
-// import figlet from "figlet";
-
-// import createNextProject from "../lib/createNextProject/index.js";
-// import createViteProject from "../lib/createViteProject.js";
-// import createVueProject from "../lib/createVueProject/index.js";
-// import createAngularProject from "../lib/createAngularProject/index.js";
-// // import createSvelteProject from '../lib/createSvelteProject.js';
-// import createAstroProject from "../lib/createAstroProject/index.js";
-// import createNuxtProject from "../lib/createNuxtProject/index.js";
-// import { setupMongoDb, setupPostgreSQL } from "../lib/backend/index.js";
-
-
-// // Get terminal width for responsive display
-// const getTerminalWidth = () => {
-//   return process.stdout.columns || 80;
-// };
-
-// // Create responsive welcome message
-// const createResponsiveWelcome = (terminalWidth) => {
-//   if (terminalWidth < 40) {
-//     // For very small terminals, use simple text with line breaks
-//     return chalk.green.bold("\nWelcome\nto\nhackpack !");
-//   } else if (terminalWidth < 60) {
-//     // For small terminals, use simple text
-//     return chalk.green.bold("\nWelcome to hackpack !");
-//   } else if (terminalWidth < 80) {
-//     // For medium terminals, use smaller figlet font
-//     return figlet.textSync("Welcome to\nhackpack !", { font: "Standard" });
-//   } else {
-//     // For large terminals, use big figlet font
-//     return figlet.textSync("Welcome to hackpack !", { font: "Big" });
-//   }
-// };
-
-// async function runCli() {
-//   const terminalWidth = getTerminalWidth();
-//   const welcomeMessage = createResponsiveWelcome(terminalWidth);
-//   console.log(chalk.green.bold(welcomeMessage));
-
-//   const {frameworkChoice } = await inquirer.prompt([
-//     {
-//       type: "list",
-//       name: "frameworkChoice",
-//       message: "Choose your framework:",
-//       choices: [
-//         { name: "Next.js", value: "next" },
-//         { name: "Vite (React)", value: "vite-react" },
-//         { name: "Remix", value: "remix" },
-//         { name: "Vue.js", value: "vue" },
-//         { name: "Angular (TS only)", value: "angular" },
-//         { name: "Svelte", value: "svelte" },
-//         { name: "Astro", value: "astro" },
-//         { name: "Nuxt.js", value: "nuxt" },
-//         { name: "None", value: "none" },
-//       ],
-//     },
-//   ]);
-//   if(frameworkChoice==="none"){
-//     return console.log(chalk.red("No framework selected. Exiting..."));
-//   }
-
-//   const { projectName } = await inquirer.prompt([
-//     {
-//       type: "input",
-//       name: "projectName",
-//       message: "Enter the name of your project:",
-//       default: `my-${frameworkChoice}-app`,
-//       validate: (input) => {
-//         if (!input) return "Project name cannot be empty";
-//         if (!/^[a-zA-Z0-9-_]+$/.test(input))
-//           return "Project name can only contain letters, numbers, dashes, and underscores";
-//         return true;
-//       },
-//       filter: (input) => input.toLowerCase(),
-//     },
-//   ]);
-
-//   try {
-//     switch (frameworkChoice) {
-//       case "next":
-//         await createNextProject({ projectName });
-//         break;
-
-//       case "vite-react":
-//         await createViteProject({ projectName });
-//         break;
-
-//       case "remix":
-//         console.log(`Scaffolding a Remix project for ${projectName}...`);
-//         // await createRemixProject({ projectName, typescript: ? });
-//         break;
-
-//       case "vue": 
-//         await createVueProject({ projectName });
-//         break;
-
-//       case "angular":
-//         await createAngularProject({ projectName });
-//         break;
-
-//       case "svelte":
-//         console.log(`Scaffolding a Svelte project for ${projectName}...`);
-//         // await createSvelteProject({ projectName, typescript: useTypeScript });
-//         break;
-
-//       case "astro":
-//         await createAstroProject({ projectName });
-//         break;
-
-//       case "nuxt":
-//         await createNuxtProject({ projectName });
-//         break;
-
-//       default:
-//         console.log(chalk.red("Invalid choice."));
-//         process.exit(1);
-//     }
-    
-//   } catch (error) {
-//     console.error(chalk.red("Error scaffolding project:"), error);
-//     process.exit(1);
-//   }
-//    const { databaseChoice } = await inquirer.prompt([
-//       {
-//         type: "list",
-//         name: "databaseChoice",
-//         message: "Choose database you want :",
-//         choices: [
-//           {
-//             name: "mongoDB",
-//             value: "mongo-db",
-//           },
-//           { name: "postgreSQL", value: "postgre-sql" },
-//           {
-//             name:"None",value:"none"
-//           }
-//         ],
-//       },
-//     ]);
-//     if(databaseChoice==="none"){
-//       console.log(chalk.yellow("No database selected."));
-//     }
-
-//     try {
-//       switch(databaseChoice){
-//         case "mongo-db":
-//           await setupMongoDb(projectName);
-//           break;
-//         case "postgre-sql":
-//           await setupPostgreSQL(projectName);
-//           break;
-//         case "none":
-//           console.log(chalk.yellow("No database selected. Skipping database setup."));
-//           break;
-//         default:
-//           console.log(chalk.red("Invalid choice."));
-//           process.exit(1);
-//       }
-//     } catch (error) {
-//     console.error(chalk.red("Error setting Database and Server due to : "), error);
-//     process.exit(1);
-//   }
-// }
-
-// runCli().catch((err) => {
-//   if (err.message && err.message.includes('User force closed')) {
-//     console.log("\n👋 Thanks for using hackpack!");
-//     process.exit(0);
-//   } else {
-//     console.error(chalk.red("An error occurred:"), err);
-//     process.exit(1);
-//   }
-// });
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 import { loadState, clearState, listProjects } from '../lib/state.js';
-import { handleSetupCommand, handleResumeCommand, handleRunCommand } from '../lib/commands/setup.js';
+import { handleResumeCommand, handleRunCommand } from '../lib/commands/setup.js';
 import { handleSelectCommand, handleNameCommand, handleProjectsCommand } from '../lib/commands/select.js';
 import { handleAddCommand, handleUninstallCommand } from '../lib/commands/uiLibrary.js';
 import { printHelp, parseArgs } from '../lib/commands/utils.js';
 import { runCli } from '../lib/interactive/wizard.js';
+import { installAutocomplete, uninstallAutocomplete, handleCompletionRequest } from '../lib/autocomplete.js';
+
+const args = process.argv.slice(2);
+if (args[0] === '--get-completions') {
+  handleCompletionRequest(args.slice(1));
+  process.exit(0);
+}
+
 
 // Handle Ctrl+C gracefully
 process.on('SIGINT', () => {
-  console.log(chalk.yellow('\n\n👋 Thanks for using hackpack! Goodbye!'));
+  console.log(chalk.yellow('\n\n👋 Thank you for using hackpack! Goodbye!'));
   process.exit(0);
 });
 
 process.on('SIGTERM', () => {
-  console.log(chalk.yellow('\n\n👋 Thanks for using hackpack! Goodbye!'));
+  console.log(chalk.yellow('\n\n👋 Thank you for using hackpack! Goodbye!'));
   process.exit(0);
 });
 
@@ -207,47 +39,8 @@ const VALID_COMMANDS = [
   'add',
   'uninstall',
   'migrate',
-  'deactivate',
   'autocomplete'
 ];
-
-// ---- Autocomplete script generator ----
-function printAutocomplete(shell) {
-  if (shell === 'powershell') {
-    console.log(`
-# Hackpack PowerShell Completion
-Register-ArgumentCompleter -Native -CommandName 'hp' -ScriptBlock {
-  param($wordToComplete, $commandAst, $cursorPosition)
-  $commands = @(
-    'help','reset','resume','select','projects','name','run',
-    'add','uninstall','migrate','state','deactivate'
-  )
-  $commands | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
-    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
-  }
-}
-`);
-    return;
-  }
-
-  if (shell === 'bash' || shell === 'zsh') {
-    console.log(`
-# Hackpack Bash/Zsh Completion
-_hp_completions() {
-  COMPREPLY=()
-  local cur="\${COMP_WORDS[COMP_CWORD]}"
-  local opts="help reset resume select projects name run add uninstall migrate state deactivate"
-  COMPREPLY=( $(compgen -W "\${opts}" -- "$cur") )
-  return 0
-}
-complete -F _hp_completions hp
-`);
-    return;
-  }
-
-  console.log(chalk.red(`Unsupported shell '${shell}'. Use: powershell | bash | zsh`));
-  process.exit(1);
-}
 
 // ---- Command router ----
 async function handleSubcommands() {
@@ -344,12 +137,22 @@ async function handleSubcommands() {
       process.exit(0);
 
     case 'autocomplete':
-      const shell = args[1];
-      if (!shell) {
-        console.log(chalk.red('Usage: hp autocomplete <powershell|bash|zsh>'));
-        process.exit(1);
+       const subCmd = args[1];
+      if (!subCmd) {
+        console.log(chalk.yellow('Usage:'));
+        console.log(chalk.cyan('  hp autocomplete install   ') + chalk.gray('- Show autocomplete setup instructions'));
+        console.log(chalk.cyan('  hp autocomplete uninstall ') + chalk.gray('- Show autocomplete removal instructions'));
+        process.exit(0);
       }
-      printAutocomplete(shell);
+      
+      if (subCmd === 'install') {
+        await installAutocomplete();
+      } else if (subCmd === 'uninstall') {
+        await uninstallAutocomplete();
+      } else {
+        console.log(chalk.red(`Unknown autocomplete command: ${subCmd}`));
+        console.log(chalk.yellow('Use: hp autocomplete install or hp autocomplete uninstall'));
+      }
       process.exit(0);
   }
   return true;
