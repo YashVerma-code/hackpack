@@ -1,6 +1,6 @@
 {
   "name": "hackpack-cli",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A CLI tool to accelerate project setup and automation.",
   "main": "bin/index.js",
   "bin": {
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlgoFoe/hackpack.git"
+    "url": "git+https://github.com/YashVerma-code/hackpack.git"
   },
   "keywords": [
     "cli"
@@ -24,9 +24,9 @@
   "author": "yash aur varun",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AlgoFoe/hackpack/issues"
+    "url": "https://github.com/YashVerma-code/hackpack/issues"
   },
-  "homepage": "https://github.com/AlgoFoe/hackpack#readme",
+  "homepage": "https://github.com/YashVerma-code/hackpack#readme",
   "devDependencies": {
     "cfonts": "^3.3.0",
     "tsup": "^8.3.6",
