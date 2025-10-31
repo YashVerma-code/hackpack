@@ -1,6 +1,6 @@
 {
   "name": "hackpack-cli",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "\"# hackpack\"",
   "main": "bin/index.js",
   "bin": {
