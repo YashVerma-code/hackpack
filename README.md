@@ -21,11 +21,11 @@
 </p>
 
 <p align="center">
-  <a href="#-quick-start"><strong>Quick Start</strong></a> •
-  <a href="#-features"><strong>Features</strong></a> •
-  <a href="#-cli-commands"><strong>CLI Commands</strong></a> •
-  <a href="#-supported-stacks"><strong>Supported Stacks</strong></a> •
-  <a href="#-roadmap"><strong>Roadmap</strong></a>
+  <a href="#quick-start"><strong>Quick Start</strong></a> •
+  <a href="#features"><strong>Features</strong></a> •
+  <a href="#cli-commands"><strong>CLI Commands</strong></a> •
+  <a href="#supported-stacks"><strong>Supported Stacks</strong></a> •
+  <a href="#roadmap"><strong>Roadmap</strong></a>
 </p>
 
 </div>
