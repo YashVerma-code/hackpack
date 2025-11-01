@@ -181,8 +181,43 @@ hp autocomplete install
 
 # Follow the instructions for your shell
 ```
+## 🧠 Understanding State in Hackpack
+
+Hackpack keeps track of your setup progress and project preferences using a persistent state file. This is especially useful when:
+
+- You stop midway during setup (e.g., terminal closes unexpectedly)
+- You want to resume an incomplete setup
+- You're managing **multiple projects** at the same time
+
+The state is stored in a hidden `.hackpack-state.json` file (in your project folder or home directory), and it keeps track of configuration choices and setup progress.
+
+### ✅ What Does Hackpack Save in State?
+
+- 📝 **Project Name**
+- ⚙️ **Framework** (React, Next.js, Angular, etc.)
+- 🎨 **Styling & UI libraries** (shadcn/ui, DaisyUI, etc.)
+- 🗄️ **Database** (MongoDB, PostgreSQL)
+- 🔐 **Authentication** (Clerk, Supabase, etc.)
+- 🧱 **Setup Step Tracking** (for resume support)
+
+Each project you create gets its own state and can be resumed or configured independently!
+
+### 🔧 Commands That Use State
+
+| Command                | Purpose |
+|------------------------|---------|
+| `hp`                   | Start a new project with a clean state |
+| `hp run`               | Builds or continues setup for the active project |
+| `hp resume`            | Resume the last project setup from where you left off |
+| `hp select <project>`  | Switch between saved projects before running/resuming |
+| `hp state`             | View all saved project states and active project |
+| `hp reset`             | Completely clears all saved state (fresh start) |
 
 ---
+
+
+---
+
 
 ## 🎨 Supported Stacks
 
@@ -263,4 +298,3 @@ Made with ❤️ by TeamHackpack ( Varun & Yash ) — because setup time is codi
 </p>
 
 </div>
-
