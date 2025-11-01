@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <em>Tired of manually setting up full-stack projects every time? <br>
+  <em>Tired of manually setting up full-stack projects every time? 😩<br>
   Say hello to <b>Hackpack</b> — your all-in-one project bootstrapper that turns setup time into build time </em>
 </p>
 
@@ -30,8 +30,6 @@
 
 </div>
 
----
-
 ## What is Hackpack?
 
 **Hackpack** is a powerful CLI tool that scaffolds hackathon-ready full-stack applications in seconds. Stop wasting time on repetitive setup — let the CLI handle your project structure, UI libraries, databases, authentication, and more with a single command
@@ -39,7 +37,6 @@
 ```bash
 npm i -g hackpack-cli
 ```
----
 
 ## Features
 
@@ -137,9 +134,6 @@ Launch your project in seconds with a single command — skip the setup, focus o
 
 </div>
 
-
----
-
 ## Quick Start
 
 ### Installation
@@ -167,8 +161,6 @@ The interactive wizard will guide you through:
 - Database choice (MongoDB, PostgreSQL)
 - Authentication setup
 - UI library preferences
-
----
 
 ## CLI Commands
 
@@ -225,7 +217,38 @@ hp autocomplete install
 # Follow the instructions for your shell
 ```
 
----
+## Understanding State in Hackpack
+
+Hackpack keeps track of your setup progress and project preferences using a persistent state file. This is especially useful when:
+
+- You stop midway during setup (e.g., terminal closes unexpectedly)
+- You want to resume an incomplete setup
+- You're managing **multiple projects** at the same time
+
+The state is stored in a hidden `.hackpack-state.json` file (in your project folder or home directory), and it keeps track of configuration choices and setup progress.
+
+### What Does Hackpack Save in State?
+
+- **Project Name**
+- **Framework** (React, Next.js, Angular, etc.)
+- **Styling & UI libraries** (shadcn/ui, DaisyUI, etc.)
+- **Database** (MongoDB, PostgreSQL)
+- **Authentication** (Clerk, Supabase, etc.)
+- **Setup Step Tracking** (for resume support)
+
+Each project you create gets its own state and can be resumed or configured independently!
+
+### Commands That Use State
+
+| Command                | Purpose |
+|------------------------|---------|
+| `hp`                   | Start a new project with a clean state |
+| `hp run`               | Builds or continues setup for the active project |
+| `hp resume`            | Resume the last project setup from where you left off |
+| `hp select <project>`  | Switch between saved projects before running/resuming |
+| `hp state`             | View all saved project states and active project |
+| `hp reset`             | Completely clears all saved state (fresh start) |
+
 
 ## Supported Stacks
 
@@ -261,7 +284,7 @@ Clerk • Supabase (coming soon) • Auth0 (AngularJS)
 
 ## Contributing
 
-We love contributions! Whether it's a bug report, feature request, or pull request — all are welcome.
+We love contributions! Whether it's a bug report, feature request, or pull request — all are welcome
 
 ### Found a Bug?
 
@@ -272,15 +295,12 @@ Open an issue with:
 - Expected vs actual behavior
 - Your environment (OS, Node version, etc.)
 
----
-
 ## License
 
-Distributed under the **Proprietary License**. See <a href="https://github.com/YashVerma-code/hackpack/blob/main/LICENSE.md">LICENSE</a> for more information.
-
----
+Distributed under the **Proprietary License**. See <a href="https://github.com/YashVerma-code/hackpack/blob/main/LICENSE.md">LICENSE</a> for more information
 
 ## Acknowledgments
 
 By TeamHackpack ( Varun & Yash ) — because setup time is coding time wasted!
 <div>
+
