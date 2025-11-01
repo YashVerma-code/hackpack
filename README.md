@@ -240,7 +240,7 @@ Distributed under the **MIT License**. See [`LICENSE`]<a href="https://github.co
 
 ## 🙏 Acknowledgments
 
-Made with ❤️ by Yash & Varun — because setup time is coding time wasted 😜
+Made with ❤️ by TeamHackpack ( Varun & Yash ) — because setup time is coding time wasted 😜
 ---
 
 <div align="center">
@@ -263,3 +263,4 @@ Made with ❤️ by Yash & Varun — because setup time is coding time wasted �
 </p>
 
 </div>
+
