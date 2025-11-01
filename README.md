@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🚀 Hackpack
+<img width="744" height="172" alt="hp-img" src="https://github.com/user-attachments/assets/6768dc69-b0c6-420d-baf6-4b2c1f87b111" />
 
 <p align="center">
-  <a href="https://github.com/YOUR_GITHUB_USERNAME/hackpack">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&duration=2800&pause=2000&color=00FF00&center=true&vCenter=true&width=700&lines=Bootstrap+Full-Stack+Apps+Fast;One+Command.+Full+Setup.;Focus+on+Building%2C+Not+Configuring" alt="Hackpack Typing Animation">
+  <a href="https://github.com/YashVerma-code/hackpack">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&duration=2400&pause=1800&color=00FF00&center=true&vCenter=true&width=700&lines=Bootstrap+Full-Stack+Apps+Fast;One+Command.+Full+Setup." alt="Hackpack Typing Animation">
   </a>
 </p>
 
@@ -16,8 +16,8 @@
 </p>
 
 <p align="center">
-  <em>Tired of manually setting up full-stack projects every time? 😩<br>
-  Say hello to <b>Hackpack</b> — your one-command project bootstrapper that saves hours of setup time 🎯</em>
+  <em>Tired of manually setting up full-stack projects every time? <br>
+  Say hello to <b>Hackpack</b> — your all-in-one project bootstrapper that turns setup time into build time </em>
 </p>
 
 <p align="center">
@@ -32,44 +32,41 @@
 
 ---
 
-## 🎯 What is Hackpack?
+## What is Hackpack?
 
-**Hackpack** is a powerful CLI tool that scaffolds production-ready full-stack applications in seconds. Stop wasting time on repetitive setup — let Hackpack handle your project structure, UI libraries, databases, authentication, and more with a single command.
+**Hackpack** is a powerful CLI tool that scaffolds hackathon-ready full-stack applications in seconds. Stop wasting time on repetitive setup — let the CLI handle your project structure, UI libraries, databases, authentication, and more with a single command
 
 ```bash
 npm i -g hackpack-cli
 ```
-
-That's it. Your project is ready to go. 🎉
-
 ---
 
-## ✨ Features
+## Features
 
 <table align="center">
 <tr>
 <td>
+  
+**Lightning-Fast Setup**  
+Spin up full projects in seconds
 
-⚡ **Lightning Fast Setup**  
-Generate complete projects in under 30 seconds
+**Modern Frameworks**  
+React, Next.js, Astro, Vue, Nuxt, Angular and Svelte
 
-🧱 **Modern Frameworks**  
-React, Next.js, Astro, Vue, Nuxt, Angular and Svelte.
-
-🎨 **Pre-configured UI**  
-shadcn/ui, DaisyUI, Material, Hero UI & many more.
-
+**Pre-configured UI**  
+shadcn/ui, DaisyUI, Material, Hero UI & many more
 </td>
-<td>
 
-🗄️ **Database Ready**  
+<td>
+  
+**Database Ready**  
 MongoDB, PostgreSQL support out of the box
 
-🔐 **Auth Integration**  
-Clerk authentication pre-configured
+**Auth Integration**  
+Clerk and more, ready to use out of the box
 
-📦 **Package Manager Agnostic**  
-Works with npm, yarn, or pnpm
+**Your Hackathon Superpower**  
+Launch your project in seconds with a single command — skip the setup, focus on building and winning the hackathon
 
 </td>
 </tr>
@@ -77,30 +74,80 @@ Works with npm, yarn, or pnpm
 
 <div align="center">
 
-### 🏗️ Full Stack Support
+### Full Stack Support
 
-| Frontend | Backend | Database | Auth | UI Libraries |
-|:--------:|:-------:|:--------:|:----:|:------------:|
-| ✅ React (Vite) | ✅ Node.js | ✅ MongoDB | ✅ Clerk | ✅ shadcn/ui |
-| ✅ Next.js | ✅ Express | 🔜 PostgreSQL (beta) | 🔜 Supabase | ✅ DaisyUI |
-| ✅ Astro | 🔜 Prisma | 🔜 MySQL | 🔜 Auth0 | ✅ Material UI |
-| ✅ Vue | 🔜 NestJS | 🔜 SQLite | | ✅ Hero UI |
-| ✅ Nuxt | 🔜 FastAPI | | | ✅ Ant Design many more |
-| ✅ Angular | 🔜 Django | | | |
-| ✅ Svelte 
+<table>
+  <tr>
+    <th>Frontend</th>
+    <th>Backend</th>
+    <th>Database</th>
+    <th>Auth</th>
+    <th>UI Libraries</th>
+  </tr>
+  <tr>
+    <td align="left">✅ React (Vite)</td>
+    <td align="left">✅ Node.js</td>
+    <td align="left">✅ MongoDB</td>
+    <td align="left">✅ Clerk</td>
+    <td align="left">✅ shadcn/ui</td>
+  </tr>
+  <tr>
+    <td align="left">✅ Next.js</td>
+    <td align="left">✅ Express</td>
+    <td align="left">🔜 PostgreSQL (beta)</td>
+    <td align="left">🔜 Supabase</td>
+    <td align="left">✅ DaisyUI</td>
+  </tr>
+  <tr>
+    <td align="left">✅ Astro</td>
+    <td align="left">🔜 Prisma</td>
+    <td align="left">🔜 MySQL</td>
+    <td align="left">🔜 Auth0</td>
+    <td align="left">✅ Material UI</td>
+  </tr>
+  <tr>
+    <td align="left">✅ Vue</td>
+    <td align="left">🔜 NestJS</td>
+    <td align="left">🔜 SQLite</td>
+    <td align="left"></td>
+    <td align="left">✅ Hero UI</td>
+  </tr>
+  <tr>
+    <td align="left">✅ Nuxt</td>
+    <td align="left">🔜 FastAPI</td>
+    <td align="left"></td>
+    <td align="left"></td>
+    <td align="left">✅ Ant Design & more</td>
+  </tr>
+  <tr>
+    <td align="left">✅ Angular</td>
+    <td align="left">🔜 Django</td>
+    <td align="left"></td>
+    <td align="left"></td>
+    <td align="left"></td>
+  </tr>
+  <tr>
+    <td align="left">✅ Svelte</td>
+    <td align="left"></td>
+    <td align="left"></td>
+    <td align="left"></td>
+    <td align="left"></td>
+  </tr>
+</table>
 
 </div>
 
+
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
 ```bash
 
 # Install globally
-npm install -g hackpack
+npm install -g hackpack-cli
 
 # Then run
 hp
@@ -115,17 +162,17 @@ hp
 ```
 
 The interactive wizard will guide you through:
-- 📁 Project name and location
-- 🎨 Framework selection (React, Next.js, Vue, etc.)
-- 🗄️ Database choice (MongoDB, PostgreSQL)
-- 🔐 Authentication setup
-- 🎭 UI library preferences
+- Project name and location
+- Framework selection (React, Next.js, Vue, etc.)
+- Database choice (MongoDB, PostgreSQL)
+- Authentication setup
+- UI library preferences
 
 ---
 
-## 🧰 CLI Commands
+## CLI Commands
 
-### 📜 Core Commands
+### Core Commands
 
 | Command | Description |
 |---------|-------------|
@@ -136,7 +183,7 @@ The interactive wizard will guide you through:
 | `hp resume` | Resume an interrupted or incomplete setup |
 | `hp run` | Execute setup for the currently selected project |
 
-### 🔧 Project Management
+### Project Management
 
 | Command | Description |
 |---------|-------------|
@@ -147,13 +194,9 @@ The interactive wizard will guide you through:
 | `hp uninstall ui <library>` | Remove an installed UI library |
 | `hp migrate` | 🔜 Migrate project to newer template versions |
 
-### 💡 Usage Examples
+### Usage Examples
 
 ```bash
-# Select and run a project
-hp select my-awesome-app
-hp run
-
 # Add UI libraries on the fly
 hp add ui shadcn
 hp add ui daisyui
@@ -166,7 +209,7 @@ hp projects
 hp state
 ```
 
-### ⚡ Autocomplete Support
+### Autocomplete Support
 
 Speed up your workflow with terminal autocompletion:
 
@@ -181,56 +224,21 @@ hp autocomplete install
 
 # Follow the instructions for your shell
 ```
-## 🧠 Understanding State in Hackpack
-
-Hackpack keeps track of your setup progress and project preferences using a persistent state file. This is especially useful when:
-
-- You stop midway during setup (e.g., terminal closes unexpectedly)
-- You want to resume an incomplete setup
-- You're managing **multiple projects** at the same time
-
-The state is stored in a hidden `.hackpack-state.json` file (in your project folder or home directory), and it keeps track of configuration choices and setup progress.
-
-### ✅ What Does Hackpack Save in State?
-
-- 📝 **Project Name**
-- ⚙️ **Framework** (React, Next.js, Angular, etc.)
-- 🎨 **Styling & UI libraries** (shadcn/ui, DaisyUI, etc.)
-- 🗄️ **Database** (MongoDB, PostgreSQL)
-- 🔐 **Authentication** (Clerk, Supabase, etc.)
-- 🧱 **Setup Step Tracking** (for resume support)
-
-Each project you create gets its own state and can be resumed or configured independently!
-
-### 🔧 Commands That Use State
-
-| Command                | Purpose |
-|------------------------|---------|
-| `hp`                   | Start a new project with a clean state |
-| `hp run`               | Builds or continues setup for the active project |
-| `hp resume`            | Resume the last project setup from where you left off |
-| `hp select <project>`  | Switch between saved projects before running/resuming |
-| `hp state`             | View all saved project states and active project |
-| `hp reset`             | Completely clears all saved state (fresh start) |
 
 ---
 
-
----
-
-
-## 🎨 Supported Stacks
+## Supported Stacks
 
 ### Frontend Frameworks
 
 ```
-React (Vite) • Next.js • Astro • Vue • Nuxt • Angular
+React (Vite) • Next.js • Astro • Vue • Nuxt • Angular • SvelteKit
 ```
 
 ### Backend Technologies
 
 ```
-Node.js • Express • Prisma • NestJS (coming soon) • FastAPI (coming soon)
+Node.js • Express • Prisma (coming soon) • NestJS (coming soon) • FastAPI (coming soon)
 ```
 
 ### UI Libraries
@@ -248,13 +256,12 @@ MongoDB • PostgreSQL (beta) • MySQL (coming soon) • SQLite (coming soon)
 ### Authentication
 
 ```
-Clerk • Supabase (coming soon) • Auth0 (coming soon)
+Clerk • Supabase (coming soon) • Auth0 (AngularJS)
 ```
 
-## 🤝 Contributing
+## Contributing
 
 We love contributions! Whether it's a bug report, feature request, or pull request — all are welcome.
-
 
 ### Found a Bug?
 
@@ -267,34 +274,13 @@ Open an issue with:
 
 ---
 
-## 📄 License
+## License
 
-Distributed under the **MIT License**. See [`LICENSE`]<a href="https://github.com/YashVerma-code/hackpack/blob/main/LICENSE.md">LICENSE</a> for more information.
+Distributed under the **Proprietary License**. See <a href="https://github.com/YashVerma-code/hackpack/blob/main/LICENSE.md">LICENSE</a> for more information.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-Made with ❤️ by TeamHackpack ( Varun & Yash ) — because setup time is coding time wasted 😜
----
-
-<div align="center">
-
-### 🌟 If you find Hackpack useful, give it a star!
-
-<p>
-  <a href="https://github.com/YOUR_GITHUB_USERNAME/hackpack">
-    <img src="https://img.shields.io/github/stars/YashVerma-code/hackpack?style=social" alt="Star on GitHub">
-  </a>
-</p>
-
-**Made with ❤️ to speed up your builds — one command at a time.**
-
-<p>
-  <!-- <a href="https://twitter.com/YOUR_TWITTER">Twitter</a> •
-  <a href="https://discord.gg/YOUR_DISCORD">Discord</a> • -->
-  <a href="https://github.com/YashVerma-code/hackpack/issues">Issues</a> •
-  <a href="https://github.com/YashVerma-code/hackpack/discussions">Discussions</a>
-</p>
-
-</div>
+By TeamHackpack ( Varun & Yash ) — because setup time is coding time wasted!
+<div>
