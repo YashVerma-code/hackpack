@@ -19,7 +19,8 @@
     "url": "git+https://github.com/YashVerma-code/hackpack.git"
   },
   "keywords": [
-    "cli"
+    "cmd","command","cli","hackpack","hackathon","terminal","console","argument",
+    "util","utility","build","bash","enquirer","generate","nextjs","react","angular","Vue","typescript","mongodb","postgres","Svelte","nuxt"
   ],
   "author": "yash aur varun",
   "license": "Proprietary",

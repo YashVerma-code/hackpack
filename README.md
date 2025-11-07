@@ -24,8 +24,8 @@
   <a href="#quick-start"><strong>Quick Start</strong></a> •
   <a href="#features"><strong>Features</strong></a> •
   <a href="#cli-commands"><strong>CLI Commands</strong></a> •
-  <a href="#supported-stacks"><strong>Supported Stacks</strong></a> •
-  <a href="#roadmap"><strong>Roadmap</strong></a>
+  <a href="#supported-stacks"><strong>Supported Stacks</strong></a> 
+  <!-- <a href="#roadmap"><strong>Roadmap</strong></a>  -->
 </p>
 
 </div>
@@ -237,6 +237,16 @@ The state is stored in a hidden `.hackpack-state.json` file (in your project fol
 - **Setup Step Tracking** (for resume support)
 
 Each project you create gets its own state and can be resumed or configured independently!
+
+## How to use database in your project 
+
+Hackpack automatically configures a **MongoDB backend** for your project, tailored to the selected framework (Next.js, Astro, SvelteKit, Nuxt, or Node.js backend).  
+Once you choose a database option (like MongoDB), Hackpack generates all the necessary folders, files, and environment variables required.
+
+Once setup is done, you only need to:
+- Create your models inside the generated `/models` directory.
+- Call the `ConnectToDB()` function (auto-generated in the project) to establish a connection whenever your app starts.  
+- Hackpack ensures your app connects to MongoDB instantly without manual configuration.
 
 ### Commands That Use State
 
