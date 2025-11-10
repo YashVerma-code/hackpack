@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/hackpack-cli"><img src="https://img.shields.io/npm/v/hackpack-cli?color=brightgreen&logo=npm" alt="npm version"></a>
-  <a href="https://www.npmjs.com/package/hackpack-cli"><img src="https://img.shields.io/npm/dm/hackpack-cli?color=blue&logo=npm" alt="npm downloads"></a>
+  <a href="https://www.npmjs.com/package/hackpack-cli"><img src="https://img.shields.io/npm/dm/hackpack-cli?color=blue&logo=npm&cacheSeconds=3600" alt="npm downloads"></a>
   <a href="https://github.com/YashVerma-code/hackpack/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Proprietary-red.svg" alt="License"></a>
   <a href="https://github.com/YashVerma-code/hackpack/stargazers"><img src="https://img.shields.io/github/stars/YashVerma-code/hackpack?style=social" alt="GitHub stars"></a>
 </p>
@@ -313,5 +313,6 @@ Distributed under the **Proprietary License**. See <a href="https://github.com/Y
 
 By TeamHackpack ( Varun & Yash ) — because setup time is coding time wasted!
 <div>
+
 
 
