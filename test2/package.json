@@ -1,0 +1,30 @@
+{
+  "name": "test2",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@clerk/clerk-js": "^5.108.0",
+    "@clerk/vue": "^1.15.1",
+    "@tailwindcss/vite": "^4.1.17",
+    "daisyui": "^5.5.5",
+    "tailwindcss": "^4.1.17",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3",
+    "vue-sonner": "^2.0.9"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.1.11",
+    "vite-plugin-vue-devtools": "^8.0.3"
+  }
+}
