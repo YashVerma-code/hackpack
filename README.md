@@ -37,6 +37,7 @@
 ```bash
 npm i -g hackpack-cli
 ```
+Node.js >= 18.7.0 (recommended)
 
 ## Features
 
