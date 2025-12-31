@@ -1,6 +1,6 @@
 {
   "name": "hackpack-cli",
-  "version": "1.0.17",
+  "version": "1.0.21",
   "description": "A CLI tool to accelerate project setup and automation.",
   "main": "bin/index.js",
   "bin": {
