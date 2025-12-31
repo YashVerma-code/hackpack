@@ -10,6 +10,7 @@ import { handleAddCommand, handleUninstallCommand } from '../lib/commands/uiLibr
 import { printHelp, parseArgs } from '../lib/commands/utils.js';
 import { runCli } from '../lib/interactive/wizard.js';
 import { installAutocomplete, uninstallAutocomplete, handleCompletionRequest } from '../lib/autocomplete.js';
+import { startTunnel } from '../lib/localXpose/utils.js';
 
 const args = process.argv.slice(2);
 if (args[0] === '--get-completions') {
@@ -20,12 +21,12 @@ if (args[0] === '--get-completions') {
 
 // Handle Ctrl+C gracefully
 process.on('SIGINT', () => {
-  console.log(chalk.yellow('\n\n👋 Thank you for using hackpack! Goodbye!'));
+  console.log(chalk.yellow('\n\n Thank you for using hackpack!'));
   process.exit(0);
 });
 
 process.on('SIGTERM', () => {
-  console.log(chalk.yellow('\n\n👋 Thank you for using hackpack! Goodbye!'));
+  console.log(chalk.yellow('\n\nThank you for using hackpack!'));
   process.exit(0);
 });
 
@@ -41,7 +42,8 @@ const VALID_COMMANDS = [
   'add',
   'uninstall',
   'migrate',
-  'autocomplete'
+  'autocomplete',
+  'expose'
 ];
 
 // ---- Command router ----
@@ -121,10 +123,44 @@ async function handleSubcommands() {
       break;
 
     case 'migrate':
-      console.log(chalk.yellow('🚧 Migration Command Beta'));
+      console.log(chalk.yellow('Migration Command Beta'));
       console.log(chalk.cyan('The project migration feature is currently in development.'));
       console.log(chalk.gray('\nFollow our releases for updates on this feature!'));
       process.exit(0);
+    
+    case 'expose':
+      const target = args[1];
+      if (!target) {
+        console.log(chalk.yellow('Usage: hp expose <url(including port)>'));
+        process.exit(1);
+      }
+      try {
+        const localUrl = target.startsWith('http') ? target : `http://localhost:${target}`;
+        console.log(chalk.cyan(`Setting up secure tunnel for ${localUrl}...`));
+        
+        const { url, process: tunnelProcess } = await startTunnel(localUrl);
+        const boxWidth = 80;
+        const contentWidth = boxWidth -2;
+
+        console.log('\n' + chalk.green('┌' + '─'.repeat(boxWidth) + '┐'));
+        console.log(chalk.green('│ ') + chalk.bold('Your project is live at:'.padEnd(contentWidth)) + chalk.green(' │'));
+        console.log(chalk.green('│ ') + chalk.cyan(url.padEnd(contentWidth)) + chalk.green(' │'));
+        console.log(chalk.green('└' + '─'.repeat(boxWidth) + '┘'));
+
+        const cleanup = () => {
+          if (tunnelProcess) tunnelProcess.kill('SIGINT');
+          console.log(chalk.yellow('\nTunnel closed!'));``
+          process.exit(0);
+        };
+
+        process.removeAllListeners('SIGINT');
+        process.on('SIGINT', cleanup);
+        process.on('SIGTERM', cleanup);
+      } catch (error) {
+        console.error(chalk.red(`\nError: ${error.message}`));
+        process.exit(1);
+      }
+      return true;
 
     case 'deactivate':
       const isWindows = process.platform === 'win32';

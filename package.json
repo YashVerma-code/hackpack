@@ -1,6 +1,6 @@
 {
   "name": "hackpack-cli",
-  "version": "1.0.14",
+  "version": "1.0.17",
   "description": "A CLI tool to accelerate project setup and automation.",
   "main": "bin/index.js",
   "bin": {
@@ -58,6 +58,7 @@
     "chalk": "^5.6.2",
     "execa": "^9.5.2",
     "figlet": "^1.8.1",
-    "inquirer": "^12.4.1"
+    "inquirer": "^12.4.1",
+    "localtunnel": "^2.0.2"
   }
 }
