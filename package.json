@@ -58,6 +58,7 @@
     "chalk": "^5.6.2",
     "execa": "^9.5.2",
     "figlet": "^1.8.1",
-    "inquirer": "^12.4.1"
+    "inquirer": "^12.4.1",
+    "localtunnel": "^2.0.2"
   }
 }
