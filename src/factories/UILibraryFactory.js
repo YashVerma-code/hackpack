@@ -1,15 +1,15 @@
 import { Logger } from '../core/Logger.js';
-import { addTailwind } from '../../lib/addTailwind.js';
+import { addTailwind } from '../lib/addTailwind.utils.js';
 
 // ── Next.js UI imports ───────────────────────────────────────────────────────
-import { ShadcnUINext } from '../generators/next/ui/ShadcnUINext.js';
-import { DaisyUINext } from '../generators/next/ui/DaisyUINext.js';
-import { HeroUINext } from '../generators/next/ui/HeroUINext.js';
-import { AceternityUINext } from '../generators/next/ui/AceternityUINext.js';
-import { TailwindOnlyNext } from '../generators/next/ui/TailwindOnlyNext.js';
-import { ChakraUINext } from '../generators/next/ui/ChakraUINext.js';
-import { MaterialUINext } from '../generators/next/ui/MaterialUINext.js';
-import { PlainCSSNext } from '../generators/next/ui/PlainCSSNext.js';
+import { ShadcnUINext } from '../generators/next/ui/shadcnui.next.js';
+import { DaisyUINext } from '../generators/next/ui/daisyui.next.js';
+import { HeroUINext } from '../generators/next/ui/heroui.next.js';
+import { AceternityUINext } from '../generators/next/ui/aceternityui.next.js';
+import { TailwindOnlyNext } from '../generators/next/ui/tailwindonly.next.js';
+import { ChakraUINext } from '../generators/next/ui/chakraui.next.js';
+import { MaterialUINext } from '../generators/next/ui/materialui.next.js';
+import { PlainCSSNext } from '../generators/next/ui/plaincss.next.js';
 
 // ── Vite + React UI imports ──────────────────────────────────────────────────
 import { setupShadcnUI as shadcnVite } from '../../lib/createViteProject/ui/shadcn.js';
@@ -36,7 +36,7 @@ import { TailwindOnlyVue } from '../generators/vue/ui/TailwindOnlyVue.js';
 
 // ── Angular UI imports ───────────────────────────────────────────────────────
 import { setupAngularMaterial as angularMaterial } from '../../lib/createAngularProject/ui/angularmaterialui.js';
-import { setupDaisyUi as daisyAngular } from '../../lib/createAngularProject/ui/daisyui.js';
+import { DaisyUIAngular } from '../generators/angular/ui/daisyui.angular.js';
 import { setupPrimeNg as primengAngular } from '../../lib/createAngularProject/ui/primeNg.js';
 
 // ── Astro UI imports ─────────────────────────────────────────────────────────
@@ -46,6 +46,10 @@ import { setupDaisyUi as daisyUIAstro } from '../../lib/createAstroProject/ui/da
 // ── Nuxt UI imports ──────────────────────────────────────────────────────────
 import { setupShadcnUI as shadcnNuxt } from '../../lib/createNuxtProject/ui/shadcn.js';
 import { setupDaisyUI as daisyNuxt } from '../../lib/createNuxtProject/ui/daisyui.js';
+import { PrimeNGAngular } from '../generators/angular/ui/primeng.angular.js';
+import { MaterialUIAngular } from '../generators/angular/ui/materialui.angular.js';
+import { TailwindOnlyAngular } from '../generators/angular/ui/tailwindonly.next.js';
+import { PlainCSSAngular } from '../generators/angular/ui/plaincss.angular.js';
 
 /**
  * Registry-based factory for UI library setup strategies.
@@ -176,11 +180,11 @@ UILibraryFactory.register('vue', 'tailwind-only',({ projectName, language, useTa
 UILibraryFactory.register('vue', 'plain',        ({ projectName, language, useTailwind }) => new DefaultVue({ projectName, language, useTailwind }).setup());
 
 // ── Registry: Angular ────────────────────────────────────────────────────────
-UILibraryFactory.register('angular', 'angular-material', ({ projectName, useTailwind }) => angularMaterial({ projectName, useTailwind }));
-UILibraryFactory.register('angular', 'daisyui',          ({ projectName, language }) => daisyAngular(projectName, language));
-UILibraryFactory.register('angular', 'primeng',          ({ projectName, language }) => primengAngular(projectName, language));
-UILibraryFactory.register('angular', 'tailwind-only',    ({ projectName }) => addTailwind({ framework: 'angular', projectName }));
-UILibraryFactory.register('angular', 'plain',            () => Logger.warn('Plain CSS selected for Angular — no UI packages installed.'));
+UILibraryFactory.register('angular', 'angular-material', ({ projectName, useTailwind }) => new MaterialUIAngular({ projectName, useTailwind,projectPath }).setup());
+UILibraryFactory.register('angular', 'daisyui',          ({ projectName, language }) =>  new DaisyUIAngular({ projectName, language, useTailwind, projectPath }).setup());
+UILibraryFactory.register('angular', 'primeng',          ({ projectName, language }) => new PrimeNGAngular({projectName, language, useTailwind, projectPath }).setup());
+UILibraryFactory.register('angular', 'tailwind-only',    ({ projectName }) => new TailwindOnlyAngular({ projectName ,projectPath}));
+UILibraryFactory.register('angular', 'plain',            ({projectName}) => new PlainCSSAngular({projectName,projectPath}).setup());
 
 // ── Registry: Astro ──────────────────────────────────────────────────────────
 UILibraryFactory.register('astro', 'shadcn',       ({ projectName, language, useTailwind }) => shadcnAstro(projectName, language === 'ts', useTailwind));

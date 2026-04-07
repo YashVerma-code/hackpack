@@ -1,8 +1,8 @@
 import chalk from 'chalk';
 import { CommandRouter } from './CommandRouter.js';
 import { StateManager } from './StateManager.js';
-import { handleCompletionRequest } from '../../lib/autocomplete.js';
-import { parseArgs } from '../../lib/commands/utils.js';
+import { parseArgs } from '../lib/command.utils.js';
+import { handleCompletionRequest } from '../lib/autocomplete.utils.js';
 
 /**
  * Root application class — the single entry point for the CLI.

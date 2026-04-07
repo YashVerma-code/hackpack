@@ -1,5 +1,5 @@
 import { BaseFramework } from './BaseFramework.js';
-import createAngularProject from '../../lib/createAngularProject/index.js';
+import { AngularGenerator } from '../generators/angular/AngularGenerator.js';
 
 /**
  * Framework creator for Angular.
@@ -26,6 +26,12 @@ export class AngularFramework extends BaseFramework {
   };
 
   async runCLI(config) {
-    await createAngularProject(config);
+    const generator = new AngularGenerator({
+      projectName: config.projectName,
+      language: config.language,
+      styling: config.styling,
+      uiLibrary: config.uiLibrary ?? null,
+    });
+    await generator.create();
   }
 }

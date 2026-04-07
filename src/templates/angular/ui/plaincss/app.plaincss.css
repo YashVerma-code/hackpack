@@ -1,0 +1,159 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #0f0f0f;
+  font-family: sans-serif;
+}
+
+.main-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #0f0f0f;
+  background-image: radial-gradient(#ff4d5c22 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 0;
+}
+
+/* Angular Glow Orbs */
+.glow-orb {
+  position: absolute;
+  background-color: #dd0031;
+  border-radius: 9999px;
+  pointer-events: none;
+  animation-name: float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.orb1 {
+  width: 24rem;
+  height: 24rem;
+  top: 33%;
+  left: 20%;
+  opacity: 0.25;
+  filter: blur(48px);
+  animation-duration: 8s;
+}
+
+.orb2 {
+  width: 20rem;
+  height: 20rem;
+  top: 25%;
+  right: 25%;
+  opacity: 0.20;
+  filter: blur(32px);
+  animation-duration: 10s;
+  animation-delay: 0.2s;
+}
+
+.orb3 {
+  width: 18rem;
+  height: 18rem;
+  bottom: 25%;
+  left: 50%;
+  opacity: 0.15;
+  filter: blur(32px);
+  animation-duration: 12s;
+  animation-delay: 0.5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(20px, -30px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+
+.content {
+  max-width: 64rem;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  max-width: fit-content;
+}
+
+.brand-name {
+  color: #dd0031;
+}
+
+.subtext {
+  font-size: 1.25rem;
+  color: #e9d5ff;
+  margin-bottom: 2rem;
+}
+
+.toast-button {
+  background-color: #dd0031;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toast-button:hover {
+  background-color: #c3002f;
+}
+
+.start-hint {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #ddd6fe;
+}
+
+.code-snippet {
+  font-family: monospace;
+  background-color: #6b21a8;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typewriter-text {
+  overflow: hidden;
+  border-right: 0.15em solid white;
+  white-space: nowrap;
+  animation: typing 3.5s steps(30, end), blink 0.75s step-end infinite;
+}

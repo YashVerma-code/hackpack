@@ -1,13 +1,13 @@
 import { execa } from 'execa';
 import chalk from 'chalk';
-import { ShadcnUINext } from './ui/ShadcnUINext.js';
-import { DaisyUINext } from './ui/DaisyUINext.js';
-import { HeroUINext } from './ui/HeroUINext.js';
-import { AceternityUINext } from './ui/AceternityUINext.js';
-import { TailwindOnlyNext } from './ui/TailwindOnlyNext.js';
-import { ChakraUINext } from './ui/ChakraUINext.js';
-import { MaterialUINext } from './ui/MaterialUINext.js';
-import { PlainCSSNext } from './ui/PlainCSSNext.js';
+import { ShadcnUINext } from './ui/shadcnui.next.js';
+import { DaisyUINext } from './ui/daisyui.next.js';
+import { HeroUINext } from './ui/heroui.next.js';
+import { AceternityUINext } from './ui/aceternityui.next.js';
+import { TailwindOnlyNext } from './ui/tailwindonly.next.js';
+import { ChakraUINext } from './ui/chakraui.next.js';
+import { MaterialUINext } from './ui/materialui.next.js';
+import { PlainCSSNext } from './ui/plaincss.next.js';
 
 export class NextGenerator {
   static #UI_REGISTRY = new Map([

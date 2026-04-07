@@ -1,0 +1,44 @@
+<main class="relative flex min-h-screen flex-col items-center justify-center p-8 sm:p-24 overflow-hidden
+  bg-[#0f0f0f]
+  bg-[radial-gradient(#ff4d5c22_1px,transparent_1px)]
+  bg-[length:20px_20px] z-0">
+
+    <!-- Angular Glow Orbs -->
+    <div
+        class="absolute w-96 h-96 bg-[#dd0031] opacity-25 rounded-full blur-3xl top-1/3 left-1/5 pointer-events-none animate-[float_8s_ease-in-out_infinite]">
+    </div>
+    <div
+        class="absolute w-80 h-80 bg-[#dd0031] opacity-20 rounded-full blur-2xl top-1/4 right-1/4 pointer-events-none animate-[float_10s_ease-in-out_infinite] delay-200">
+    </div>
+    <div
+        class="absolute w-72 h-72 bg-[#dd0031] opacity-15 rounded-full blur-2xl bottom-1/4 left-1/2 pointer-events-none animate-[float_12s_ease-in-out_infinite] delay-500">
+    </div>
+
+    <!-- Content -->
+    <div class="z-10 max-w-6xl w-full text-center">
+        <div class="w-full flex flex-wrap justify-center">
+            <h1 class="text-5xl sm:text-6xl font-extrabold mb-6 text-white drop-shadow-xl typewriter-text p-2">
+                Welcome to <span class="text-[#dd0031]">HackPack</span>
+            </h1>
+        </div>
+
+        <p class="text-xl sm:text-lg mb-8 text-pink-100 leading-relaxed">
+            Harness the power of Angular, styled with class. 💫
+            <br />
+            This project is wired with Angular, Tailwind CSS & automation.
+        </p>
+
+        <button class="btn btn-error"
+            (click)="toast('🎉 Welcome aboard! HackPack is ready to accelerate your development journey.')">
+            Launch a toast notification
+        </button>
+        <p class="mt-12 text-sm text-pink-200">
+            Start building from
+            <code class="font-mono bg-pink-900/70 px-2 py-1 rounded">
+        src/app/app.component.ts or arc/app/app.ts
+      </code>
+        </p>
+    </div>
+</main>
+
+<ngx-sonner-toaster position="bottom-right" />

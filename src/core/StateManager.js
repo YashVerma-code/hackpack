@@ -1,13 +1,5 @@
-import {
-  loadState,
-  saveState,
-  clearState,
-  listProjects,
-  getProject,
-  addOrUpdateProject,
-  removeProject,
-  getStateFilePathPublic,
-} from '../../lib/state.js';
+import { addOrUpdateProject, clearState, getProject, getStateFilePathPublic, listProjects, loadState, removeProject, saveState } from "../lib/state.utils.js";
+
 
 /**
  * Singleton service that owns all access to the persisted project state.

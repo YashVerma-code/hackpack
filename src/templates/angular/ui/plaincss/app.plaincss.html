@@ -1,0 +1,26 @@
+<main class="main-container">
+    <!-- Angular Glow Orbs -->
+    <div class="glow-orb orb1"></div>
+    <div class="glow-orb orb2"></div>
+    <div class="glow-orb orb3"></div>
+    <div class="content">
+        <h1 class="heading typewriter-text">
+            Welcome to <span class="brand-name">HackPack</span>
+        </h1>
+
+        <p class="subtext">
+            Harness the power of Angular, styled with class. 💫<br />
+            This project is wired with Angular, CSS & automation.
+        </p>
+
+        <button class="toast-button"
+            (click)="toast('🎉 Welcome aboard! HackPack is ready to accelerate your development journey.')">
+            Launch a toast notification
+        </button>
+
+        <p class="start-hint">
+            Start building from <code class="code-snippet">src/app/app.component.ts or src/app/app.ts</code>
+        </p>
+    </div>
+</main>
+<ngx-sonner-toaster position="bottom-right" />
