@@ -1,0 +1,128 @@
+---
+import "../styles/global.css";
+import ToastDemo from "../components/ToastDemo";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hackpack Welcome</title>
+        <style>
+            .stars {
+                background: radial-gradient(#ffffff33 1px, transparent 1px);
+                background-size: 20px 20px;
+                animation: starMove 50s linear infinite;
+            }
+
+            @keyframes starMove {
+                from {
+                    background-position: 0 0;
+                }
+                to {
+                    background-position: 1000px 1000px;
+                }
+            }
+
+            @keyframes typing {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+
+            @keyframes blink {
+                50% {
+                    border-color: transparent;
+                }
+            }
+
+            .typewriter-text {
+                overflow: hidden;
+                border-right: 0.15em solid white;
+                white-space: nowrap;
+                max-width: fit-content;
+                animation:
+                    typing 3.5s steps(30, end),
+                    blink 0.75s step-end infinite;
+            }
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0) translateX(0);
+                }
+                50% {
+                    transform: translateY(-20px) translateX(10px);
+                }
+            }
+
+            .glow-orb {
+                width: 20px;
+                height: 20px;
+                border-radius: 9999px;
+                background-color: rgba(255, 255, 255, 0.15);
+                position: absolute;
+                animation: float 6s ease-in-out infinite;
+                filter: blur(8px);
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const cards = document.querySelectorAll(".fade-up");
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add(
+                                    "opacity-100",
+                                    "translate-y-0",
+                                );
+                            }
+                        });
+                    },
+                    { threshold: 0.2 },
+                );
+
+                cards.forEach((el) => observer.observe(el));
+            });
+        </script>
+    </head>
+    <body
+        class="relative min-h-screen text-white bg-gradient-to-br from-gray-900 via-indigo-900 to-black overflow-hidden"
+    >
+        <!-- Animated Stars Background -->
+        <div class="absolute inset-0 stars opacity-20 pointer-events-none">
+        </div>
+        <div class="glow-orb top-1/3 left-1/4"></div>
+        <div class="glow-orb top-1/4 right-1/3"></div>
+        <div class="glow-orb bottom-1/4 left-1/2"></div>
+
+        <main
+            class="relative z-10 flex flex-col items-center justify-center min-h-screen p-6 space-y-10 text-center"
+        >
+            <!-- Typewriter Heading -->
+            <h1
+                class="text-4xl sm:text-6xl font-extrabold typewriter-text text-white"
+            >
+                🚀 Welcome to <span class="text-indigo-200">Hackpack</span>
+            </h1>
+
+            <p
+                class="sm:text-xl text-lg max-w-xl fade-up opacity-0 translate-y-8 transition-all duration-700 delay-300 text-purple-100 leading-9"
+            >
+                Unleash Astro&apos;s cosmic performance—elegantly styled with
+                Tailwind.💫<br />
+                React drives the interactivity, automation powers your workflow.
+            </p>
+
+            <ToastDemo client:load />
+            <p class="mt-5 text-sm text-purple-200">
+                Start building from{" "}
+                <code class="font-mono bg-purple-700 px-2 py-1 rounded">
+                    src/pages/index.astro
+                </code>
+            </p>
+        </main>
+    </body>
+</html>

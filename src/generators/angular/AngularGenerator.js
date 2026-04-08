@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { Logger } from '../../core/Logger.js';
 import { DaisyUIAngular } from './ui/daisyui.angular.js';
-import { TailwindOnlyAngular } from './ui/tailwindonly.next.js';
+import { TailwindOnlyAngular } from './ui/tailwindonly.angular.js';
 import { PlainCSSAngular } from './ui/plaincss.angular.js';
 import { PrimeNGAngular } from './ui/primeng.angular.js';
 import { MaterialUIAngular } from './ui/materialui.angular.js';

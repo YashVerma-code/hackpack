@@ -1,0 +1,196 @@
+---
+// import "../styles/global.css";
+import ToastDemo from "../components/ToastDemo";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hackpack Welcome</title>
+        <style>
+            body {
+                position: relative;
+                min-height: 100vh;
+                margin: 0;
+                font-family: sans-serif;
+                background: linear-gradient(
+                    to bottom right,
+                    #1a202c,
+                    #312e81,
+                    #000
+                );
+                color: white;
+                overflow: hidden;
+                text-align: center;
+                padding: 0;
+            }
+
+            .stars {
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(#ffffff33 1px, transparent 1px);
+                background-size: 20px 20px;
+                opacity: 0.2;
+                animation: starMove 50s linear infinite;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            @keyframes starMove {
+                from {
+                    background-position: 0 0;
+                }
+                to {
+                    background-position: 1000px 1000px;
+                }
+            }
+
+            @keyframes typing {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+
+            @keyframes blink {
+                50% {
+                    border-color: transparent;
+                }
+            }
+
+            .typewriter-text {
+                font-size: 2.5rem;
+                font-weight: 800;
+                white-space: nowrap;
+                overflow: hidden;
+                max-width: fit-content;
+                border-right: 0.15em solid white;
+                animation:
+                    typing 3.5s steps(30, end),
+                    blink 0.75s step-end infinite;
+            }
+
+            .highlight {
+                color: #c7d2fe;
+            }
+
+            .main-content {
+                position: relative;
+                z-index: 10;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+            .fade-up {
+                opacity: 0;
+                transform: translateY(2rem);
+                transition: all 0.7s ease 0.3s;
+                max-width: 40rem;
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+                color: #e9d5ff;
+            }
+
+            .glow-orb {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 9999px;
+                background-color: rgba(255, 255, 255, 0.15);
+                filter: blur(8px);
+                animation: float 6s ease-in-out infinite;
+                z-index: 1;
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0) translateX(0);
+                }
+                50% {
+                    transform: translateY(-20px) translateX(10px);
+                }
+            }
+
+            .code-block {
+                margin-top: 1.25rem;
+                font-size: 0.875rem;
+                color: #ddd6fe;
+            }
+
+            .code-inline {
+                font-family: monospace;
+                background-color: #6b21a8;
+                padding: 0.25rem 0.5rem;
+                border-radius: 0.375rem;
+            }
+
+            @media (min-width: 640px) {
+                .typewriter-text {
+                    font-size: 3.75rem;
+                }
+
+                .fade-up {
+                    font-size: 1.25rem;
+                }
+            }
+        </style>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const cards = document.querySelectorAll(".fade-up");
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("show");
+                            }
+                        });
+                    },
+                    { threshold: 0.2 },
+                );
+
+                cards.forEach((el) => observer.observe(el));
+            });
+        </script>
+        <style>
+            .fade-up.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Animated Stars Background -->
+        <div class="stars"></div>
+        <div class="glow-orb" style="top: 33%; left: 25%;"></div>
+        <div class="glow-orb" style="top: 25%; right: 33%;"></div>
+        <div class="glow-orb" style="bottom: 25%; left: 50%;"></div>
+
+        <main class="main-content">
+            <!-- Typewriter Heading -->
+            <h1 class="typewriter-text">
+                🚀 Welcome to <span class="highlight">Hackpack</span>
+            </h1>
+
+            <p class="fade-up">
+                Unleash Astro's cosmic performance—elegantly styled with pure
+                CSS. 💫<br />
+                React drives the interactivity, automation powers your workflow.
+            </p>
+
+            <ToastDemo client:load />
+
+            <p class="code-block">
+                Start building from
+                <code class="code-inline">src/pages/index.astro</code>
+            </p>
+        </main>
+    </body>
+</html>

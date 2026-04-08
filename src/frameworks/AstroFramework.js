@@ -1,5 +1,5 @@
 import { BaseFramework } from './BaseFramework.js';
-import createAstroProject from '../../lib/createAstroProject/index.js';
+import { AstroGenerator } from '../generators/astro/AstroGenerator.js';
 
 /**
  * Framework creator for Astro.
@@ -22,6 +22,12 @@ export class AstroFramework extends BaseFramework {
   };
 
   async runCLI(config) {
-    await createAstroProject(config);
+     const generator = new AstroGenerator({
+      projectName: config.projectName,
+      language: config.language,
+      styling: config.styling,
+      uiLibrary: config.uiLibrary ?? null,
+    });
+    await generator.create();
   }
 }

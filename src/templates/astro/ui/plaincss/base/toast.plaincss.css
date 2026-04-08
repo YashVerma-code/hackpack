@@ -1,0 +1,16 @@
+.custom-toast-button {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    margin: 1.25rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.custom-toast-button:hover {
+    background-color: #1d4ed8;
+    /* blue-700 */
+}

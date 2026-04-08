@@ -48,8 +48,12 @@ import { setupShadcnUI as shadcnNuxt } from '../../lib/createNuxtProject/ui/shad
 import { setupDaisyUI as daisyNuxt } from '../../lib/createNuxtProject/ui/daisyui.js';
 import { PrimeNGAngular } from '../generators/angular/ui/primeng.angular.js';
 import { MaterialUIAngular } from '../generators/angular/ui/materialui.angular.js';
-import { TailwindOnlyAngular } from '../generators/angular/ui/tailwindonly.next.js';
+import { TailwindOnlyAngular } from '../generators/angular/ui/tailwindonly.angular.js';
 import { PlainCSSAngular } from '../generators/angular/ui/plaincss.angular.js';
+import { ShadcnAstro } from '../generators/astro/ui/shadcn.astro.js';
+import { DaisyUIAstro } from '../generators/astro/ui/daisyui.astro.js';
+import { PlainCSSAstro } from '../generators/astro/ui/plaincss.astro.js';
+import { TailwindOnlyAstro } from '../generators/astro/ui/tailwindonly.astro.js';
 
 /**
  * Registry-based factory for UI library setup strategies.
@@ -187,10 +191,10 @@ UILibraryFactory.register('angular', 'tailwind-only',    ({ projectName }) => ne
 UILibraryFactory.register('angular', 'plain',            ({projectName}) => new PlainCSSAngular({projectName,projectPath}).setup());
 
 // ── Registry: Astro ──────────────────────────────────────────────────────────
-UILibraryFactory.register('astro', 'shadcn',       ({ projectName, language, useTailwind }) => shadcnAstro(projectName, language === 'ts', useTailwind));
-UILibraryFactory.register('astro', 'daisyui',      ({ projectName, language, useTailwind }) => daisyUIAstro(projectName, language === 'ts', useTailwind));
-UILibraryFactory.register('astro', 'tailwind-only',({ projectName }) => addTailwind({ framework: 'astro', projectName }));
-UILibraryFactory.register('astro', 'plain',        () => Logger.warn('Plain CSS selected for Astro — no UI packages installed.'));
+UILibraryFactory.register('astro', 'shadcn',       ({ projectName, language, useTailwind }) => new ShadcnAstro({ projectName ,projectPath,language,useTailwind}).setup());
+UILibraryFactory.register('astro', 'daisyui',      ({ projectName, language, useTailwind }) =>new DaisyUIAstro({ projectName ,projectPath,language,useTailwind}));
+UILibraryFactory.register('astro', 'tailwind-only',({ projectName }) => new TailwindOnlyAstro({projectName,projectPath}).setup());
+UILibraryFactory.register('astro', 'plain',        ({projectName}) => new PlainCSSAstro({projectName,projectPath}).setup());
 
 // ── Registry: Nuxt ───────────────────────────────────────────────────────────
 UILibraryFactory.register('nuxt', 'shadcn',       ({ projectName, useTailwind }) => shadcnNuxt(projectName, useTailwind));
