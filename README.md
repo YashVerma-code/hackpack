@@ -36,7 +36,7 @@
 ## What is Hackpack?
 
 **Hackpack** is a powerful CLI tool that scaffolds hackathon-ready full-stack applications in seconds. Stop wasting time on repetitive setup — let the CLI handle your project structure, UI libraries, databases, authentication, and more with a single command
-
+ 
 ```bash
 npm i -g hackpack-cli
 ```
