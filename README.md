@@ -1,7 +1,7 @@
 <div align="center">
 
 <img width="744" height="172" alt="hp-img" src="https://github.com/user-attachments/assets/6768dc69-b0c6-420d-baf6-4b2c1f87b111" />
-
+ 
 <p align="center">
   <a href="https://github.com/YashVerma-code/hackpack">
     <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&duration=2400&pause=1800&color=00FF00&center=true&vCenter=true&width=700&lines=Bootstrap+Full-Stack+Apps+Fast;One+Command.+Full+Setup." alt="Hackpack Typing Animation">
