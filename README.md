@@ -14,6 +14,9 @@
   <a href="https://github.com/YashVerma-code/hackpack/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Proprietary-red.svg" alt="License"></a>
   <a href="https://github.com/YashVerma-code/hackpack/stargazers"><img src="https://img.shields.io/github/stars/YashVerma-code/hackpack?style=social" alt="GitHub stars"></a>
 </p>
+<a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
+  <img src="https://sellwithboost.com/badge/listing-dark.svg" alt="Listed on Sell With boost" style="height: 40px; width: auto;" />
+</a>
 
 <p align="center">
   <em>Tired of manually setting up full-stack projects every time? 😩<br>
